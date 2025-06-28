@@ -60,6 +60,22 @@
             "collideWorldBounds": true,
             "body.width": 250,
             "body.height": 250
+        },
+        {
+            "type": "ArcadeSprite",
+            "id": "81ba3992-2f1a-4ae9-8245-fd21222a88d1",
+            "label": "fruit_1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "guapen"
+            },
+            "x": 508,
+            "y": 376,
+            "scaleX": 0.25,
+            "scaleY": 0.25,
+            "angle": 60,
+            "body.width": 208,
+            "body.height": 240
         }
     ],
     "plainObjects": [
@@ -94,6 +110,16 @@
             "scope": "LOCAL",
             "object1": "dino",
             "object2": "dino_1"
+        },
+        {
+            "id": "b29d20a5-490f-4991-9ffa-4fb4bf9c28c5",
+            "type": "Collider",
+            "label": "collider_1",
+            "scope": "LOCAL",
+            "object1": "dino_1",
+            "object2": "fruit_1",
+            "overlapOnly": true,
+            "collideCallback": "this.eatFruit"
         }
     ],
     "meta": {

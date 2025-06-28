@@ -52,12 +52,23 @@ export default class Level extends Phaser.Scene {
 		dino_1.body.collideWorldBounds = true;
 		dino_1.body.setSize(250, 250, false);
 
+		// fruit_1
+		const fruit_1 = this.physics.add.sprite(508, 376, "guapen");
+		fruit_1.scaleX = 0.25;
+		fruit_1.scaleY = 0.25;
+		fruit_1.angle = 60;
+		fruit_1.body.setSize(208, 240, false);
+
 		// collider
 		this.physics.add.collider(dino, dino_1);
+
+		// collider_1
+		this.physics.add.overlap(dino_1, fruit_1, this.eatFruit);
 
 		this.dino = dino;
 		this.welcome = welcome;
 		this.dino_1 = dino_1;
+		this.fruit_1 = fruit_1;
 		this.up_key = up_key;
 		this.down_key = down_key;
 		this.left_key = left_key;
@@ -72,6 +83,8 @@ export default class Level extends Phaser.Scene {
 	welcome;
 	/** @type {Phaser.Physics.Arcade.Image} */
 	dino_1;
+	/** @type {Phaser.Physics.Arcade.Sprite} */
+	fruit_1;
 	/** @type {Phaser.Input.Keyboard.Key} */
 	up_key;
 	/** @type {Phaser.Input.Keyboard.Key} */
@@ -116,6 +129,11 @@ export default class Level extends Phaser.Scene {
       else {
          this.dino_1.setVelocityX(0);
       }
+   }
+
+   eatFruit(dino, food) {
+      console.log('hit');
+      food.disableBody();
    }
 
 	/* END-USER-CODE */
