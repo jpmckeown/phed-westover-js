@@ -1,0 +1,96 @@
+{
+    "id": "01aefa93-6044-4159-8358-7e91310aa05f",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Level",
+        "borderWidth": 960,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "ArcadeImage",
+            "id": "7d5827fd-34f6-473f-90e0-b9424a51d5fa",
+            "label": "dino",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 250,
+            "hitArea.height": 250,
+            "texture": {
+                "key": "dino"
+            },
+            "scaleX": 0.7,
+            "scaleY": 0.5,
+            "originX": 0,
+            "originY": 0,
+            "body.width": 250,
+            "body.height": 250
+        },
+        {
+            "type": "Text",
+            "id": "b2b3dbd5-2106-41fa-8a04-9b511e3401a9",
+            "label": "welcome",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 478,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Phaser 3 + Phaser Editor v4",
+            "fontFamily": "Arial",
+            "fontSize": "30px"
+        },
+        {
+            "type": "ArcadeImage",
+            "id": "0887ca31-f92a-4e60-92e2-57ee3f2dab9b",
+            "label": "dino_1",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 250,
+            "hitArea.height": 250,
+            "texture": {
+                "key": "dino"
+            },
+            "x": 344,
+            "y": 258,
+            "collideWorldBounds": true,
+            "body.width": 250,
+            "body.height": 250
+        }
+    ],
+    "plainObjects": [
+        {
+            "id": "a75e106a-640f-4dfd-b4ea-3c0c3dca6124",
+            "type": "Keyboard.Key",
+            "label": "up_key",
+            "keyCode": "UP"
+        },
+        {
+            "id": "d95f7382-439e-45ff-9d42-0032322df9af",
+            "type": "Keyboard.Key",
+            "label": "down_key",
+            "keyCode": "DOWN"
+        },
+        {
+            "id": "2d760fbe-b4a8-4d92-9b7b-52c1465aaabb",
+            "type": "Keyboard.Key",
+            "label": "left_key",
+            "keyCode": "LEFT"
+        },
+        {
+            "id": "dc15f2fb-7bd1-4a1c-8772-92fd2267b202",
+            "type": "Keyboard.Key",
+            "label": "right_key",
+            "keyCode": "RIGHT"
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}
