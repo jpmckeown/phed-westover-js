@@ -31,25 +31,29 @@ export default class Level extends Phaser.Scene {
 		// right_key
 		const right_key = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
-      // welcome
-		const welcome = this.add.text(640, 478, "", {});
-		welcome.setOrigin(0.5, 0.5);
-		welcome.text = "Phaser 3 + Phaser Editor v4";
-		welcome.setStyle({ "fontFamily": "Arial", "fontSize": "30px" });
-
 		// dino
 		const dino = this.physics.add.image(0, 0, "dino");
 		dino.setInteractive(new Phaser.Geom.Rectangle(0, 0, 250, 250), Phaser.Geom.Rectangle.Contains);
 		dino.scaleX = 0.7;
 		dino.scaleY = 0.5;
 		dino.setOrigin(0, 0);
+		dino.body.immovable = true;
 		dino.body.setSize(250, 250, false);
+
+		// welcome
+		const welcome = this.add.text(640, 478, "", {});
+		welcome.setOrigin(0.5, 0.5);
+		welcome.text = "Phaser 3 + Phaser Editor v4";
+		welcome.setStyle({ "fontFamily": "Arial", "fontSize": "30px" });
 
 		// dino_1
 		const dino_1 = this.physics.add.image(344, 258, "dino");
 		dino_1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 250, 250), Phaser.Geom.Rectangle.Contains);
 		dino_1.body.collideWorldBounds = true;
 		dino_1.body.setSize(250, 250, false);
+
+		// collider
+		this.physics.add.collider(dino, dino_1);
 
 		this.dino = dino;
 		this.welcome = welcome;
@@ -80,9 +84,9 @@ export default class Level extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write more your code here
+   dinoSpeed = 100;
 
 	create() {
-
 		this.editorCreate();
 
 		this.dino.on("pointerdown", () => {
@@ -95,19 +99,19 @@ export default class Level extends Phaser.Scene {
 
    update(){
       if(this.up_key.isDown){
-         this.dino_1.setVelocityY(-100);
+         this.dino_1.setVelocityY(-1*this.dinoSpeed);
       }
       else if(this.down_key.isDown){
-         this.dino_1.setVelocityY(100);
+         this.dino_1.setVelocityY(this.dinoSpeed);
       }
       else{
          this.dino_1.setVelocityY(0);
       }
       if(this.left_key.isDown){
-         this.dino_1.setVelocityX(-100);
+         this.dino_1.setVelocityX(-1*this.dinoSpeed);
       }
       else if(this.right_key.isDown){
-         this.dino_1.setVelocityX(100);
+         this.dino_1.setVelocityX(this.dinoSpeed);
       }
       else {
          this.dino_1.setVelocityX(0);
