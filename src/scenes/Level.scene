@@ -98,6 +98,16 @@
             "y": 556,
             "scaleX": 0.35,
             "scaleY": 0.25
+        },
+        {
+            "type": "Text",
+            "id": "74db58d2-d5eb-4c7e-bdee-a23eceea96d7",
+            "label": "scoreText",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 20,
+            "text": "Score: 0",
+            "fontSize": "42px"
         }
     ],
     "plainObjects": [
@@ -141,7 +151,8 @@
             "object1": "dino_1",
             "object2": "food",
             "overlapOnly": true,
-            "collideCallback": "this.eatFruit"
+            "collideCallback": "this.eatFruit",
+            "callbackContext": "this"
         }
     ],
     "meta": {

@@ -67,6 +67,11 @@ export default class Level extends Phaser.Scene {
 		fruit_3.scaleX = 0.35;
 		fruit_3.scaleY = 0.25;
 
+		// scoreText
+		const scoreText = this.add.text(640, 20, "", {});
+		scoreText.text = "Score: 0";
+		scoreText.setStyle({ "fontSize": "42px" });
+
 		// lists
 		const food = [fruit_1, fruit_2, fruit_3];
 
@@ -74,12 +79,13 @@ export default class Level extends Phaser.Scene {
 		this.physics.add.collider(dino, dino_1);
 
 		// collider_1
-		this.physics.add.overlap(dino_1, food, this.eatFruit);
+		this.physics.add.overlap(dino_1, food, this.eatFruit, undefined, this);
 
 		this.dino = dino;
 		this.welcome = welcome;
 		this.dino_1 = dino_1;
 		this.fruit_1 = fruit_1;
+		this.scoreText = scoreText;
 		this.up_key = up_key;
 		this.down_key = down_key;
 		this.left_key = left_key;
@@ -97,6 +103,8 @@ export default class Level extends Phaser.Scene {
 	dino_1;
 	/** @type {FoodPrefab} */
 	fruit_1;
+	/** @type {Phaser.GameObjects.Text} */
+	scoreText;
 	/** @type {Phaser.Input.Keyboard.Key} */
 	up_key;
 	/** @type {Phaser.Input.Keyboard.Key} */
@@ -112,6 +120,7 @@ export default class Level extends Phaser.Scene {
 
 	// Write more your code here
    dinoSpeed = 100;
+   score = 0;
 
 	create() {
 		this.editorCreate();
@@ -146,9 +155,11 @@ export default class Level extends Phaser.Scene {
    }
 
    eatFruit(dino, food) {
-      console.log('hit');
+      console.log(this);
       food.disableBody();
-      food.destroy()
+      food.destroy();
+      this.score += 1;
+      this.scoreText.setText('Score: ' + this.score); 
    }
 
 	/* END-USER-CODE */
