@@ -62,20 +62,42 @@
             "body.height": 250
         },
         {
-            "type": "ArcadeSprite",
+            "prefabId": "0077b160-4a77-4409-a61e-8a871b177d2b",
             "id": "81ba3992-2f1a-4ae9-8245-fd21222a88d1",
+            "unlock": [
+                "x",
+                "y"
+            ],
             "label": "fruit_1",
             "scope": "CLASS",
-            "texture": {
-                "key": "guapen"
-            },
             "x": 508,
-            "y": 376,
-            "scaleX": 0.25,
-            "scaleY": 0.25,
-            "angle": 60,
-            "body.width": 208,
-            "body.height": 240
+            "y": 376
+        },
+        {
+            "prefabId": "0077b160-4a77-4409-a61e-8a871b177d2b",
+            "id": "32424c98-1c34-46d9-bd2e-1928e95c454b",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fruit_2",
+            "x": 131,
+            "y": 414
+        },
+        {
+            "prefabId": "0077b160-4a77-4409-a61e-8a871b177d2b",
+            "id": "2899dbc9-a8bc-4102-983f-2a5dbc61ed95",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "fruit_3",
+            "x": 305,
+            "y": 556,
+            "scaleX": 0.35,
+            "scaleY": 0.25
         }
     ],
     "plainObjects": [

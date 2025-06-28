@@ -3,6 +3,7 @@
 
 /* START OF COMPILED CODE */
 
+import FoodPrefab from "../FoodPrefab.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -53,11 +54,18 @@ export default class Level extends Phaser.Scene {
 		dino_1.body.setSize(250, 250, false);
 
 		// fruit_1
-		const fruit_1 = this.physics.add.sprite(508, 376, "guapen");
-		fruit_1.scaleX = 0.25;
-		fruit_1.scaleY = 0.25;
-		fruit_1.angle = 60;
-		fruit_1.body.setSize(208, 240, false);
+		const fruit_1 = new FoodPrefab(this, 508, 376);
+		this.add.existing(fruit_1);
+
+		// fruit_2
+		const fruit_2 = new FoodPrefab(this, 131, 414);
+		this.add.existing(fruit_2);
+
+		// fruit_3
+		const fruit_3 = new FoodPrefab(this, 305, 556);
+		this.add.existing(fruit_3);
+		fruit_3.scaleX = 0.35;
+		fruit_3.scaleY = 0.25;
 
 		// collider
 		this.physics.add.collider(dino, dino_1);
@@ -83,7 +91,7 @@ export default class Level extends Phaser.Scene {
 	welcome;
 	/** @type {Phaser.Physics.Arcade.Image} */
 	dino_1;
-	/** @type {Phaser.Physics.Arcade.Sprite} */
+	/** @type {FoodPrefab} */
 	fruit_1;
 	/** @type {Phaser.Input.Keyboard.Key} */
 	up_key;
@@ -134,6 +142,7 @@ export default class Level extends Phaser.Scene {
    eatFruit(dino, food) {
       console.log('hit');
       food.disableBody();
+      food.destroy()
    }
 
 	/* END-USER-CODE */
