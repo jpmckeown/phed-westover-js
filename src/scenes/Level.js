@@ -95,16 +95,22 @@ export default class Level extends Phaser.Scene {
 
    update(){
       if(this.up_key.isDown){
-         this.dino_1.y -= 2;
+         this.dino_1.setVelocityY(-100);
       }
       else if(this.down_key.isDown){
-         this.dino_1.y += 2;
+         this.dino_1.setVelocityY(100);
+      }
+      else{
+         this.dino_1.setVelocityY(0);
       }
       if(this.left_key.isDown){
-         this.dino_1.x -= 2;
+         this.dino_1.setVelocityX(-100);
       }
       else if(this.right_key.isDown){
-         this.dino_1.x += 2;
+         this.dino_1.setVelocityX(100);
+      }
+      else {
+         this.dino_1.setVelocityX(0);
       }
    }
 
