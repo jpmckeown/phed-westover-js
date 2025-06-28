@@ -67,11 +67,14 @@ export default class Level extends Phaser.Scene {
 		fruit_3.scaleX = 0.35;
 		fruit_3.scaleY = 0.25;
 
+		// lists
+		const food = [fruit_1, fruit_2, fruit_3];
+
 		// collider
 		this.physics.add.collider(dino, dino_1);
 
 		// collider_1
-		this.physics.add.overlap(dino_1, fruit_1, this.eatFruit);
+		this.physics.add.overlap(dino_1, food, this.eatFruit);
 
 		this.dino = dino;
 		this.welcome = welcome;
@@ -81,6 +84,7 @@ export default class Level extends Phaser.Scene {
 		this.down_key = down_key;
 		this.left_key = left_key;
 		this.right_key = right_key;
+		this.food = food;
 
 		this.events.emit("scene-awake");
 	}
@@ -101,6 +105,8 @@ export default class Level extends Phaser.Scene {
 	left_key;
 	/** @type {Phaser.Input.Keyboard.Key} */
 	right_key;
+	/** @type {FoodPrefab[]} */
+	food;
 
 	/* START-USER-CODE */
 

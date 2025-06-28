@@ -139,7 +139,7 @@
             "label": "collider_1",
             "scope": "LOCAL",
             "object1": "dino_1",
-            "object2": "fruit_1",
+            "object2": "food",
             "overlapOnly": true,
             "collideCallback": "this.eatFruit"
         }
@@ -149,5 +149,16 @@
         "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    }
+    },
+    "lists": [
+        {
+            "id": "ad224568-5755-4fbe-a606-1bb558f1cf4f",
+            "label": "food",
+            "objectIds": [
+                "81ba3992-2f1a-4ae9-8245-fd21222a88d1",
+                "32424c98-1c34-46d9-bd2e-1928e95c454b",
+                "2899dbc9-a8bc-4102-983f-2a5dbc61ed95"
+            ]
+        }
+    ]
 }
