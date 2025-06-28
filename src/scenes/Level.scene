@@ -13,6 +13,36 @@
     },
     "displayList": [
         {
+            "type": "Layer",
+            "id": "bfce841e-f43f-4559-83db-781a4c0a145a",
+            "label": "layer_1",
+            "list": [
+                {
+                    "type": "Text",
+                    "id": "b2b3dbd5-2106-41fa-8a04-9b511e3401a9",
+                    "label": "welcome",
+                    "scope": "CLASS",
+                    "x": 757,
+                    "y": 684,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Phaser 3 + Phaser Editor v4",
+                    "fontFamily": "Arial",
+                    "fontSize": "30px"
+                },
+                {
+                    "type": "Text",
+                    "id": "74db58d2-d5eb-4c7e-bdee-a23eceea96d7",
+                    "label": "scoreText",
+                    "scope": "CLASS",
+                    "x": 719,
+                    "y": 11,
+                    "text": "Score: 0",
+                    "fontSize": "42px"
+                }
+            ]
+        },
+        {
             "type": "ArcadeImage",
             "id": "7d5827fd-34f6-473f-90e0-b9424a51d5fa",
             "label": "dino",
@@ -30,19 +60,6 @@
             "immovable": true,
             "body.width": 250,
             "body.height": 250
-        },
-        {
-            "type": "Text",
-            "id": "b2b3dbd5-2106-41fa-8a04-9b511e3401a9",
-            "label": "welcome",
-            "scope": "CLASS",
-            "x": 640,
-            "y": 478,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "Phaser 3 + Phaser Editor v4",
-            "fontFamily": "Arial",
-            "fontSize": "30px"
         },
         {
             "type": "ArcadeImage",
@@ -100,14 +117,15 @@
             "scaleY": 0.25
         },
         {
-            "type": "Text",
-            "id": "74db58d2-d5eb-4c7e-bdee-a23eceea96d7",
-            "label": "scoreText",
-            "scope": "CLASS",
-            "x": 640,
-            "y": 20,
-            "text": "Score: 0",
-            "fontSize": "42px"
+            "prefabId": "99313ad6-dc09-47d5-95b1-919c7679d2d3",
+            "id": "cc2478c9-f056-4e82-9a7b-947deb6e22d2",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "burgerPrefab",
+            "x": 582,
+            "y": 159
         }
     ],
     "plainObjects": [
@@ -168,7 +186,8 @@
             "objectIds": [
                 "81ba3992-2f1a-4ae9-8245-fd21222a88d1",
                 "32424c98-1c34-46d9-bd2e-1928e95c454b",
-                "2899dbc9-a8bc-4102-983f-2a5dbc61ed95"
+                "2899dbc9-a8bc-4102-983f-2a5dbc61ed95",
+                "cc2478c9-f056-4e82-9a7b-947deb6e22d2"
             ]
         }
     ]

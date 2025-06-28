@@ -4,6 +4,7 @@
 /* START OF COMPILED CODE */
 
 import FoodPrefab from "../FoodPrefab.js";
+import BurgerPrefab from "../BurgerPrefab.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -32,6 +33,22 @@ export default class Level extends Phaser.Scene {
 		// right_key
 		const right_key = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
+		// layer_1
+		const layer_1 = this.add.layer();
+
+		// welcome
+		const welcome = this.add.text(757, 684, "", {});
+		welcome.setOrigin(0.5, 0.5);
+		welcome.text = "Phaser 3 + Phaser Editor v4";
+		welcome.setStyle({ "fontFamily": "Arial", "fontSize": "30px" });
+		layer_1.add(welcome);
+
+		// scoreText
+		const scoreText = this.add.text(719, 11, "", {});
+		scoreText.text = "Score: 0";
+		scoreText.setStyle({ "fontSize": "42px" });
+		layer_1.add(scoreText);
+
 		// dino
 		const dino = this.physics.add.image(0, 0, "dino");
 		dino.setInteractive(new Phaser.Geom.Rectangle(0, 0, 250, 250), Phaser.Geom.Rectangle.Contains);
@@ -40,12 +57,6 @@ export default class Level extends Phaser.Scene {
 		dino.setOrigin(0, 0);
 		dino.body.immovable = true;
 		dino.body.setSize(250, 250, false);
-
-		// welcome
-		const welcome = this.add.text(640, 478, "", {});
-		welcome.setOrigin(0.5, 0.5);
-		welcome.text = "Phaser 3 + Phaser Editor v4";
-		welcome.setStyle({ "fontFamily": "Arial", "fontSize": "30px" });
 
 		// dino_1
 		const dino_1 = this.physics.add.image(344, 258, "dino");
@@ -67,13 +78,12 @@ export default class Level extends Phaser.Scene {
 		fruit_3.scaleX = 0.35;
 		fruit_3.scaleY = 0.25;
 
-		// scoreText
-		const scoreText = this.add.text(640, 20, "", {});
-		scoreText.text = "Score: 0";
-		scoreText.setStyle({ "fontSize": "42px" });
+		// burgerPrefab
+		const burgerPrefab = new BurgerPrefab(this, 582, 159);
+		this.add.existing(burgerPrefab);
 
 		// lists
-		const food = [fruit_1, fruit_2, fruit_3];
+		const food = [fruit_1, fruit_2, fruit_3, burgerPrefab];
 
 		// collider
 		this.physics.add.collider(dino, dino_1);
@@ -81,11 +91,11 @@ export default class Level extends Phaser.Scene {
 		// collider_1
 		this.physics.add.overlap(dino_1, food, this.eatFruit, undefined, this);
 
-		this.dino = dino;
 		this.welcome = welcome;
+		this.scoreText = scoreText;
+		this.dino = dino;
 		this.dino_1 = dino_1;
 		this.fruit_1 = fruit_1;
-		this.scoreText = scoreText;
 		this.up_key = up_key;
 		this.down_key = down_key;
 		this.left_key = left_key;
@@ -95,16 +105,16 @@ export default class Level extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
-	/** @type {Phaser.Physics.Arcade.Image} */
-	dino;
 	/** @type {Phaser.GameObjects.Text} */
 	welcome;
+	/** @type {Phaser.GameObjects.Text} */
+	scoreText;
+	/** @type {Phaser.Physics.Arcade.Image} */
+	dino;
 	/** @type {Phaser.Physics.Arcade.Image} */
 	dino_1;
 	/** @type {FoodPrefab} */
 	fruit_1;
-	/** @type {Phaser.GameObjects.Text} */
-	scoreText;
 	/** @type {Phaser.Input.Keyboard.Key} */
 	up_key;
 	/** @type {Phaser.Input.Keyboard.Key} */
@@ -113,7 +123,7 @@ export default class Level extends Phaser.Scene {
 	left_key;
 	/** @type {Phaser.Input.Keyboard.Key} */
 	right_key;
-	/** @type {FoodPrefab[]} */
+	/** @type {Array<FoodPrefab|BurgerPrefab>} */
 	food;
 
 	/* START-USER-CODE */
